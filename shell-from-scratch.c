@@ -1,15 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <pwd.h>
 
 #define MAX_PATH_LENGTH 100
 #define LF  10
+
+char check_su()
+{
+	uid_t uid = geteuid();
+	if(uid == 0) return '#';
+	return '$';
+}
+
+const char *get_username()
+{
+  uid_t uid = geteuid();
+  struct passwd *pw = getpwuid(uid);
+  if (pw)    return pw->pw_name;
+  return "";
+}
 
 int print_prompt()
 {
     char *buffer = (char *)malloc(MAX_PATH_LENGTH);
     char *value = (char *)getcwd(buffer, MAX_PATH_LENGTH);
 
-    if (value != 0) fprintf(stdout, "shell-from-scratch : %s\n-> ", buffer);
+    if (value != 0) fprintf(stdout, "shell-from-scratch : %s\n%s%c ", buffer, get_username(), check_su());
     free(buffer);
 
     return 0;
