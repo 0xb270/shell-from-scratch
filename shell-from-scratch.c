@@ -5,6 +5,7 @@
 #define MAX_PATH_LENGTH 100
 #define LF  10
 
+// Return '#' if root else '$'.
 char check_su()
 {
 	uid_t uid = geteuid();
@@ -12,6 +13,7 @@ char check_su()
 	return '$';
 }
 
+// Return the pointer of current username.
 const char *get_username()
 {
   uid_t uid = geteuid();
@@ -20,6 +22,7 @@ const char *get_username()
   return "";
 }
 
+// Print status of prompt.
 int print_prompt()
 {
     char *buffer = (char *)malloc(MAX_PATH_LENGTH);
