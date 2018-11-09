@@ -8,9 +8,9 @@
 // Return '#' if root else '$'.
 char check_su()
 {
-	uid_t uid = geteuid();
-	if(uid == 0) return '#';
-	return '$';
+  uid_t uid = geteuid();
+  if(uid == 0) return '#';
+  return '$';
 }
 
 // Return the pointer of current username.
