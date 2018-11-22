@@ -11,4 +11,5 @@ Build a small and simple shell from scratch to learn UNIX/LINUX system programmi
   - [Wikipedia : Shell_(computing)](https://en.wikipedia.org/wiki/Shell_(computing))
   
 ### Progress
+* 2018-11-23 Add `parse_and_execute()`, `execute()`, `get_token()` to execute something. 
 * 2018-11-08 Print cwd(current working directory) in absolute path, current username, current privilege(`#` or `$`).
